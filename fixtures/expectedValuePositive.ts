@@ -8,8 +8,6 @@ export const EXPECTED_VALUE = {
     digitsOfLogin: "1996",
     digitsOfPassword: "4321",
     symbolOfEmail: "@",
-    whitespace: " ",
-    negativeType: "number|symbol",
 };
 
 

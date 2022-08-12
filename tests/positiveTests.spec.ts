@@ -1,7 +1,7 @@
-import { RegistrationForm } from "../registrationForm/registrationForm";
 import { expect } from "chai";
-import { EXPECTED_VALUE } from "../fixtures/expectedValue";
-import { ACTUAL_VALUE } from "../fixtures/actualValue";
+import { RegistrationForm } from "../registrationForm/registrationForm";
+import { EXPECTED_VALUE } from "../fixtures/expectedValuePositive";
+import { ACTUAL_VALUE } from "../fixtures/commonActualValue";
 
 const { actualName, actualLogin, actualPassword, actualEmail, digits } = ACTUAL_VALUE;
 

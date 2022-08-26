@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { RegistrationForm } from "../registrationForm/registrationForm";
 import { ACTUAL_VALUE } from "../fixtures/commonActualValue";
-import { whitespace, negativeType } from "../fixtures/expectedValueNegative";
+import { WHITESPACE, NEGATIVE_TYPE } from "../fixtures/expectedValueNegative";
 import {
     getNameSlice, getLoginSlice, getRepeatSymbol, getRepeatDigits, getLowerCaseName, getEndOfPassword, getStartOfEmail,
 } from "../fixtures/expectedValueNegative";
@@ -10,40 +10,40 @@ const { actualName, actualLogin, actualPassword, actualEmail } = ACTUAL_VALUE;
 
 describe("Testing the registration form: negative", () => {
 
-    it("Name testing: negative(1)", () => {
+    it("Name testing: entered incorrect name with lowerCase", () => {
         expect(RegistrationForm.enterYourName(actualName)).to.not.eq(getLowerCaseName());
     });
-    it("Name testing: negative(2)", () => {
-        expect(RegistrationForm.enterYourName(actualName)).to.not.eq(whitespace);
+    it("Name testing: entered incorrect name: empty field", () => {
+        expect(RegistrationForm.enterYourName(actualName)).to.not.eq(WHITESPACE);
     });
-    it("Name testing: negative(3)", () => {
+    it("Name testing: entered incorrect name with whitespace", () => {
         expect(RegistrationForm.enterYourName(actualName)).to.not.eq(getNameSlice());
     });
-    it("Login testing: negative(1)", () => {
-        expect(RegistrationForm.enterYourLogin(actualLogin)).to.not.be.a(negativeType);
+    it("Login testing: incorrect input type", () => {
+        expect(RegistrationForm.enterYourLogin(actualLogin)).to.not.be.a(NEGATIVE_TYPE);
     });
-    it("Login testing: negative(2)", () => {
-        expect(RegistrationForm.enterYourLogin(actualLogin)).to.not.eq(whitespace);
+    it("Login testing: empty field", () => {
+        expect(RegistrationForm.enterYourLogin(actualLogin)).to.not.eq(WHITESPACE);
     });
-    it("Login testing: negative(3)", () => {
+    it("Login testing: entered incorrect login with whitespace", () => {
         expect(RegistrationForm.enterYourLogin(actualLogin)).to.not.eq(getLoginSlice());
     });
-    it("Password testing: negative (1)", () => {
+    it("Password testing: incorrect end of password", () => {
         expect(RegistrationForm.enterYourPassword(actualPassword)).to.not.eq(getEndOfPassword());
     });
-    it("Password testing: negative (2)", () => {
+    it("Password testing: repeat end os password", () => {
         expect(RegistrationForm.enterYourPassword(actualPassword)).to.not.include(getRepeatDigits());
     });
-    it("Password testing: negative (3)", () => {
-        expect(RegistrationForm.enterYourPassword(actualPassword)).to.not.be.a(negativeType);
+    it("Password testing: incorrect input field", () => {
+        expect(RegistrationForm.enterYourPassword(actualPassword)).to.not.be.a(NEGATIVE_TYPE);
     });
-    it("Email testing: negative (1)", () => {
+    it("Email testing: incorrect start of email", () => {
         expect(RegistrationForm.enterYourEmail(actualEmail)).to.not.eq(getStartOfEmail());
     });
-    it("Email testing: negative (2)", () => {
+    it("Email testing: invalid email", () => {
         expect(RegistrationForm.enterYourEmail(actualEmail)).to.not.include(getRepeatSymbol());
     });
-    it("Email testing: negative (3)", () => {
-        expect(RegistrationForm.enterYourEmail(actualEmail)).to.not.be.a(negativeType);
+    it("Email testing: incorrect input type", () => {
+        expect(RegistrationForm.enterYourEmail(actualEmail)).to.not.be.a(NEGATIVE_TYPE);
     });
 });

@@ -1,18 +1,18 @@
 import { EXPECTED_VALUE } from "./expectedValuePositive";
 
-export const whitespace = " ";
-export const negativeType = "number|symbol";
+export const WHITESPACE = " ";
+export const NEGATIVE_TYPE = "number|symbol";
 
 const { expectedName, expectedLogin, expectedPassword, digitsOfPassword, expectedEmail, symbolOfEmail } = EXPECTED_VALUE;
 
 export const getNameSlice = (): string => {
     return expectedName.slice(0, 2)
-        .concat(whitespace)
+        .concat(WHITESPACE)
         .concat(expectedName.slice(2, 6));
 };
 export const getLoginSlice = (): string => {
     return expectedLogin.slice(0, 8)
-        .concat(whitespace)
+        .concat(WHITESPACE)
         .concat(expectedLogin.slice(8, 13));
 };
 export const getRepeatSymbol = (): string => {
